@@ -1,0 +1,313 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow:wght@500;600;700&family=Kode+Mono:wght@400..700&display=swap');
+
+:root {
+    --gray: #242424;
+    --purple: #836FFF;
+    --green: #15F5BA;
+    --light-gray: #F0F3FF;
+}
+
+::-webkit-scrollbar-track
+{
+	-webkit-box-shadow: none;
+	background-color: var(--gray);
+}
+
+::-webkit-scrollbar
+{
+	width: 5px;
+	background-color: var(--gray);
+}
+
+::-webkit-scrollbar-thumb
+{
+	background-color: var(--green);
+}
+@-webkit-keyframes bounce {
+    0% { transform: translateY(-5px)  }
+    50% { transform: translateY(10px) }
+    100% { transform: translateY(-5px) }
+}
+
+@keyframes bounce {
+    0% { transform: translateY(-5px)  }
+    50% { transform: translateY(10px) }
+    100% { transform: translateY(-5px) }
+}
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+
+* {
+    outline: none;
+    border: none;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0; font-family: "Kode Mono", monospace;
+    font-optical-sizing: auto;
+    font-style: normal;
+    background-color: var(--gray);
+}
+button {
+    font-family: inherit;
+    cursor: pointer;
+}
+
+img {
+    width: 100%;
+    display: flex;
+}
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+nav {
+    color: var(--purple);
+    max-width: 1200px;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 2rem 1rem;
+}
+
+.logo {
+    font-size: 3rem;
+    font-weight: 700;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    -webkit-text-stroke: 2px;
+    -webkit-text-fill-color: transparent !important;
+    width: 170px;
+}
+
+.nav_links {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: 3rem;
+}
+.link a {
+    position: relative;
+    padding-bottom: .4rem;
+}
+.link a::after {
+    content: "";
+    position: absolute;
+    height: 2px;
+    width: 0;
+    bottom: 0;
+    left: 0;
+    background-color: var(--green);
+    transition: all .3s ease;
+}
+.link a:hover::after {
+    width: 100%;
+}
+.link a:hover {
+    color: var(--light-gray);
+}
+
+.contact_button {
+    padding: .5rem 2rem;
+    width: 170px;
+    background-color: var(--green);
+    font-weight: 700;
+    color: var(--gray);
+    font-size: 1.1rem;
+    box-shadow: 4px 4px 0 0 var(--purple);
+    border: 2px solid var(--gray);
+    transition: all .3s ease;
+}
+.contact_button span {
+    background-color: inherit;
+}
+.contact_button span i {
+    background: none !important;
+}
+.contact_button:hover {
+    background-color: var(--purple);
+    color: #fff;
+    box-shadow: 2px 2px 0 0 var(--green);
+}
+
+.container {
+    max-width: 1200px;
+    margin: auto;
+    padding: 5rem 2rem;
+}
+
+.blur {
+    position: absolute;
+    box-shadow: 0 0 1000px 50px var(--green);
+    bottom: 100px;
+    z-index: 1;
+}
+
+header {
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    align-items: center;
+    gap: 2rem;
+}
+
+header .content h4 {
+    color: var(--light-gray);
+    padding-bottom: 20px;
+    opacity: 0;
+    animation: fadeIn .4s ease;
+    animation-delay: .5s;
+    animation-fill-mode: forwards;
+}
+
+header .content h1 {
+    font-weight: 700;
+    font-size: 3rem;
+    color: var(--green);
+    word-spacing: -5px;
+    opacity: 0;
+    animation: fadeIn .6s ease;
+    animation-delay: 2s;
+    animation-fill-mode: forwards;
+}
+header .content h1 span {
+    color: var(--purple);
+    position: relative;
+}
+
+header .content p {
+    color: #ccc;
+    z-index: 10;
+    opacity: 0;
+    animation: fadeIn 1s ease;
+    animation-delay: 3s;
+    animation-fill-mode: forwards;
+}
+
+header .image img {
+    -webkit-animation: bounce 3s infinite ease-in-out;
+    -o-animation: bounce 3s infinite ease-in-out;
+    -ms-animation: bounce 3s infinite ease-in-out; 
+    -moz-animation: bounce 3s infinite ease-in-out; 
+    animation: bounce 3s infinite ease-in-out;
+    max-width: 420px;
+    margin-left: auto;
+}
+
+
+.container .header {
+    padding-bottom: 25px;   
+    color: var(--light-gray);
+    text-align: center;
+}
+.container .who_am_i {
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    margin: auto;
+    align-items: center;
+    gap: 2rem;
+    background-color: #2a2a2a;
+    padding: 2rem 4rem;
+    border: 4px solid var(--gray);
+    box-shadow: 4px 4px 0 0 var(--purple);
+}
+.who_am_i .card {
+    background-color: inherit !important;
+    color: var(--light-gray);
+}
+.who_am_i .card p {
+    background: none !important;
+}
+.who_am_i .image {
+    background: none;
+    max-width: 300px;
+    margin: auto;
+}
+.who_am_i .image img {
+    margin: auto;
+    background: none !important;
+}
+
+.curriculum_button {
+    margin-top: 30px;
+    padding: .5rem 2rem;
+    background-color: var(--green);
+    font-weight: 700;
+    color: var(--gray);
+    font-size: 1.1rem;
+    box-shadow: 4px 4px 0 0 var(--purple);
+    border: 2px solid var(--gray);
+    transition: all .3s ease;
+}
+.curriculum_button span {
+    background-color: inherit;
+}
+.curriculum_button span i {
+    background: none !important;
+}
+.curriculum_button:hover {
+    background-color: var(--purple);
+    color: #fff;
+    box-shadow: 2px 2px 0 0 var(--green);
+}
+
+footer {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    margin: auto;
+    align-items: center;
+    gap: 3rem;
+}
+
+footer .footer_logo {
+    color: var(--purple);
+    display: flex;
+    align-items: flex-end;
+    word-spacing: -5px;
+}
+
+.footer_logo logo {
+    font-size: 3rem;
+    font-weight: 700;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    -webkit-text-stroke: 2px;
+    -webkit-text-fill-color: transparent !important;
+}
+
+footer .footer_actions {
+    margin: auto;
+    width: 100%;
+    list-style: none;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.footer_actions .action {
+    border: 2px solid var(--gray);
+    font-size: 1.6rem;
+    padding: .5rem;
+    background-color: var(--green);
+    box-shadow: 4px 4px 0 0 var(--purple);
+    transition: all .4s;
+}
+.action a {
+    color: inherit;
+    background: none;
+}
+.action a i {
+    background: none;
+}
+.action:hover {
+    background-color: var(--purple);
+    color: #fff;
+    box-shadow: 2px 2px 0 0 var(--green);
+}
