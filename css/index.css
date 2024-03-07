@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Barlow:wght@500;600;700&family=Kode+Mono:wght@400..700&display=swap');
 
 :root {
-    --gray: #242424;
+    --gray: #2e2e2e;
     --purple: #836FFF;
     --green: #15F5BA;
     --light-gray: #F0F3FF;
@@ -42,8 +42,33 @@
         opacity: 1;
     }
 }
+@keyframes bannermove {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
+}
+@keyframes rotate-element {
+    from {
+        rotate: 0deg;
+    } 
+    to {
+        rotate: 360deg;
+    }
+}
 
-
+.general-animation {
+    animation: fadeIn .4s ease;
+    animation-fill-mode: forwards;
+}
+html {
+    scroll-behavior: smooth;
+}
+body {
+    background-color: var(--gray);
+}
 * {
     outline: none;
     border: none;
@@ -52,7 +77,8 @@
     padding: 0; font-family: "Kode Mono", monospace;
     font-optical-sizing: auto;
     font-style: normal;
-    background-color: var(--gray);
+    z-index: 1;
+
 }
 button {
     font-family: inherit;
@@ -147,9 +173,15 @@ nav {
     position: absolute;
     box-shadow: 0 0 1000px 50px var(--green);
     bottom: 100px;
-    z-index: 1;
+    z-index: -1;
 }
+.blur-reverse {
+    position: absolute;
+    box-shadow: 0 0 1000px 50px var(--green);
+    bottom: 100px;
+    z-index: 1;
 
+}
 header {
     position: relative;
     display: grid;
@@ -161,10 +193,10 @@ header {
 header .content h4 {
     color: var(--light-gray);
     padding-bottom: 20px;
-    opacity: 0;
+    /* opacity: 0;
     animation: fadeIn .4s ease;
     animation-delay: .5s;
-    animation-fill-mode: forwards;
+    animation-fill-mode: forwards; */
 }
 
 header .content h1 {
@@ -201,26 +233,85 @@ header .image img {
     margin-left: auto;
 }
 
+/* --------------carousel ------------------------------ */
+.overflow {
+    overflow: hidden;
+}
+.carousel {
+    transition: all 1s;
+    width: 100%;
+    padding-left: 3rem;
+}
+.carousel-wrapper {
+    display: flex;
+    align-items: center;
+    width: 200%;
+    animation: bannermove 20s linear infinite;
+    overflow: hidden;
+    position: relative;
+}
+.overflow:before {
+    content: "";
+    position: absolute;
+    background: linear-gradient(to right, gray, transparent);
+    z-index: 10;
+}
+.carousel ul{
+    display: flex;
+    list-style-type: none;
+    padding-left: 0;
+    gap: 3rem;
+    margin: 0;
+}
+.carousel li {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.carousel img {
+    max-width: 100px;
+    object-fit: cover;
+    filter: grayscale(100%);
+}
 
+/* -------------who am i ------------------------ */
 .container .header {
     padding-bottom: 25px;   
     color: var(--light-gray);
     text-align: center;
 }
-.container .who_am_i {
+.who_am_i_article {
     position: relative;
+    z-index: 1;
+}
+.square {
+    width: 200px;
+    height: 200px;
+    display: flex;
+    flex-shrink: 0;
+    background-color: #15F5BA;
+    position: absolute;
+    right: -20px;
+    bottom: 0   ;
+    top: 20px;
+    z-index: -1;
+    animation: rotate-element 90s infinite;
+}
+.container .who_am_i {
+    z-index: 1;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     margin: auto;
     align-items: center;
     gap: 2rem;
-    background-color: #2a2a2a;
+    background-color: #6c6b6b46;
+    backdrop-filter: blur(5px);
     padding: 2rem 4rem;
     border: 4px solid var(--gray);
-    box-shadow: 4px 4px 0 0 var(--purple);
+    /* box-shadow: 4px 4px 0 0 var(--purple); */
 }
 .who_am_i .card {
-    background-color: inherit !important;
     color: var(--light-gray);
 }
 .who_am_i .card p {
@@ -234,6 +325,8 @@ header .image img {
 .who_am_i .image img {
     margin: auto;
     background: none !important;
+    border: 4px solid var(--green);
+    box-shadow: 8px 8px 0 0 var(--purple);
 }
 
 .curriculum_button {
@@ -258,7 +351,10 @@ header .image img {
     color: #fff;
     box-shadow: 2px 2px 0 0 var(--green);
 }
+/* -----------------my projects ----------------- */
 
+
+/* --------------- footer ------------------------ */
 footer {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
